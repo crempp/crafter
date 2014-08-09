@@ -79,46 +79,50 @@ $INTRO = "lapinlabs.com hosts mutliple minecraft servers. Each one uses whitelis
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
-    <h1><?php echo $PAGE_TITLE; ?></h1>
-    <div class='summary'>
-        <p><?php echo $INTRO; ?></p>
-    </div>
-  
-    <table>
-      <thead>
-          <tr>
-            <th>Host</th>
-            <th>Status</th>
-            <th>Players</th>
-            <th>Description</th>
-            <th>Settings</th>
-          </tr>
-      </thead>
-      <tbody>
-        <?php foreach($DATA as $server) { ?>
-        
-        <tr>
-          <td><?php echo $server['host']; ?>:<?php echo $server['config']['server-port']; ?></td>
-          <td><?php printServerStatus($server['status']); ?></td>
-          <td><?php printPlayerList($server['status']); ?></td>
-          <td>
-            <div class='server-title'><a href="<?php echo $server['map-url']; ?>" target="_blank"><?php echo $server['name']; ?></a></div>
-            <p><?php echo $server['description'] ?></p>
-          </td>
-          <td>
-            <ul class='setting-list'>
-              <li><span class='setting-field'>level-type</span><span class='setting-value'><?php echo $server['config']['level-type']; ?></span></li>
-              <li><span class='setting-field'>difficulty=</span><span class='setting-value'><?php echo $server['config']['difficulty']; ?></span></li>
-              <li><span class='setting-field'>enable-command-block</span><span class='setting-value'><?php echo $server['config']['enable-command-block']; ?></span></li>
-              <li><span class='setting-field'>gamemode</span><span class='setting-value'><?php echo $server['config']['gamemode']; ?></span></li>
-              <li><span class='setting-field'>max-players</span><span class='setting-value'><?php echo $server['config']['max-players'] ?></span></li>
-            </ul>
-          </td>
-        </tr>
-        <?php } ?>
-      </tbody>
-  
-    </table>
-  
+    <div class='container'>
+        <h1><?php echo $PAGE_TITLE; ?></h1>
+        <div class='summary'>
+            <p><?php echo $INTRO; ?></p>
+        </div>
+        <div class='summary'>
+            <a href="<?php echo $DATA['map']['map-url']; ?>" target="_blank">Maps</a>
+        </div>
+      
+        <table class='server-table'>
+          <thead>
+              <tr>
+                <th>Host</th>
+                <th>Status</th>
+                <th>Players</th>
+                <th>Description</th>
+                <th>Settings</th>
+              </tr>
+          </thead>
+          <tbody>
+            <?php foreach($DATA['servers'] as $server) { ?>
+            
+            <tr>
+              <td><?php echo $server['host']; ?>:<?php echo $server['config']['server-port']; ?></td>
+              <td><?php printServerStatus($server['status']); ?></td>
+              <td><?php printPlayerList($server['status']); ?></td>
+              <td>
+                <div class='server-title'><?php echo $server['name']; ?></div>
+                <p><?php echo $server['description'] ?></p>
+              </td>
+              <td>
+                <ul class='setting-list'>
+                  <li><span class='setting-field'>level-type</span><span class='setting-value'><?php echo $server['config']['level-type']; ?></span></li>
+                  <li><span class='setting-field'>difficulty=</span><span class='setting-value'><?php echo $server['config']['difficulty']; ?></span></li>
+                  <li><span class='setting-field'>enable-command-block</span><span class='setting-value'><?php echo $server['config']['enable-command-block']; ?></span></li>
+                  <li><span class='setting-field'>gamemode</span><span class='setting-value'><?php echo $server['config']['gamemode']; ?></span></li>
+                  <li><span class='setting-field'>max-players</span><span class='setting-value'><?php echo $server['config']['max-players'] ?></span></li>
+                </ul>
+              </td>
+            </tr>
+            <?php } ?>
+          </tbody>
+      
+        </table>
+    </div>  
   </body>
 </html>

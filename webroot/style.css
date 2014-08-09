@@ -11,12 +11,20 @@ h1 {
     font-size: 46px;
 }
 
+.container {
+  margin: 0px auto;
+  width: 980px;
+}
+
 .summary {
     margin-right: 60px;
     margin-left: 60px;
     margin-bottom: 40px;
 }
 
+.server-table{
+  
+}
 table {
   border: 1px solid #aaa;
   

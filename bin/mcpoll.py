@@ -1,4 +1,4 @@
-#!/usr/bin/python
+#!/usr/bin/env python
 """
 Mincraft server polling script and data aggregator
 
@@ -22,7 +22,7 @@ from pprint import pprint
 import socket
 import json
 from minecraft_query import MinecraftQuery
-from mcpollconfig import config
+from mcconfig import config
 
 def parse_config(path):
     f = open(path + '/server.properties', 'r')
@@ -60,19 +60,19 @@ def poll(server):
     return server_data
     
 if __name__ == '__main__':
-    data = []
-
-    for server in config:
-        config = parse_config(server['path'])
-        data.append({
-            'id': server['id'],
-            'name': config['level-name'],
-            'host': server['host'],
-            'map-path': server['map-path'],
-            'map-url': server['map-url'],
-            'description': server['description'],
+    data = config.copy()
+    
+    for i, server in enumerate(config['servers']):
+        server_properties = parse_config(server['path'])
+        data['servers'][i].update({
+            #'id': server['id'],
+            'name': server_properties['level-name'],
+            #'host': server['host'],
+            #'path': server['path'],
+            #'map': server['map'],
+            #'description': server['description'],
             'status': poll(server),
-            'config': config,
+            'config': server_properties,
         })
 
     serialized = json.dumps(data)
