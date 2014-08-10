@@ -45,15 +45,16 @@ for server in config['servers']:
     else:
         print('    OK')
 
-# Run overviewer
-start = datetime.now()
-print('  Running Overviewer build [started %s]' % start.strftime("%H:%M:%s"))
+    # Run overviewer
+    start = datetime.now()
+    print('  Running Overviewer build [started %s]' % start.strftime("%H:%M:%s"))
 
-# TODO: Move the map config path into a base setting. For now we're grabbing it from the first element
-system('overviewer.py --config "%s"' % (config['map']['config']))
+    cmd = 'export MAP="%s"; overviewer.py --config "%s"' % (server['name'], config['map']['config'])
+    print(cmd)
+    system(cmd)
 
-end = datetime.now()
-print('  Finished build [total time %s]' % (end - start))
+    end = datetime.now()
+    print('  Finished build [total time %s]' % (end - start))
     
     
 

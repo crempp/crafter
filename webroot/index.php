@@ -76,6 +76,7 @@ $INTRO = "lapinlabs.com hosts mutliple minecraft servers. Each one uses whitelis
   <head>
     <title><?php echo $PAGE_TITLE; ?></title>
     <link href='http://fonts.googleapis.com/css?family=Signika+Negative:400,700' rel='stylesheet' type='text/css'>
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
@@ -85,7 +86,7 @@ $INTRO = "lapinlabs.com hosts mutliple minecraft servers. Each one uses whitelis
             <p><?php echo $INTRO; ?></p>
         </div>
         <div class='summary'>
-            <a href="<?php echo $DATA['map']['map-url']; ?>" target="_blank">Maps</a>
+            
         </div>
       
         <table class='server-table'>
@@ -106,7 +107,10 @@ $INTRO = "lapinlabs.com hosts mutliple minecraft servers. Each one uses whitelis
               <td><?php printServerStatus($server['status']); ?></td>
               <td><?php printPlayerList($server['status']); ?></td>
               <td>
-                <div class='server-title'><?php echo $server['name']; ?></div>
+                <div class='server-title'>
+                  <a href="<?php echo $server['map']['map-url']; ?>" target="_blank"><i class="fa fa-globe"></i></a>
+                  <?php echo $server['name']; ?>
+                </div>
                 <p><?php echo $server['description'] ?></p>
               </td>
               <td>
