@@ -1,0 +1,23 @@
+{% load staticfiles %}
+<html>
+  <head>
+    <title>lapinlabs.com - Crafter</title>
+    <link href='http://fonts.googleapis.com/css?family=Signika+Negative:400,700' rel='stylesheet' type='text/css'>
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="{% static "css/style.css" %}" />
+  </head>
+  <body>
+    <div class='container'>
+        <h1>lapinlabs.com Minecraft Server</h1>
+        <div class='summary'>
+            <p>lapinlabs.com hosts mutliple minecraft servers. Each one uses
+               whitelisting so if you'd like to join please email me.</p>
+        </div>
+        <div class='summary'>
+
+        </div>
+
+        {% block content %}{% endblock %}
+    </div>
+  </body>
+</html>

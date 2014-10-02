@@ -1,0 +1,155 @@
+body {
+  background-color: #161616;
+  color: #eeeeee;
+  font-family: 'Signika Negative', sans-serif;
+}
+
+h1 {
+    text-align: center;
+    margin-top: 40px;
+    margin-bottom: 40px;
+    font-size: 46px;
+}
+
+.container {
+  margin: 0px auto;
+  width: 980px;
+}
+
+.summary {
+    margin-right: 60px;
+    margin-left: 60px;
+    margin-bottom: 40px;
+}
+
+.server-table{
+  
+}
+table {
+  border: 1px solid #aaa;
+  border-collapse: collapse;
+}
+table thead th {
+  background-color: #444444;
+  font-weight: bold;
+  border-bottom: 1px solid #fff;
+  padding: 8px;
+}
+
+table tbody tr {
+    border-bottom: 1px solid #fff;
+}
+table tbody tr:hover {
+  background-color: #666666;
+  color: #ffffff;
+}
+table tbody td {
+  font-size: 12px;
+  padding-top: 0px;
+  padding-bottom: 0px;
+  padding-left: 8px;
+  padding-right: 8px;
+  height: 110px;
+}
+table tbody td.t-cell-game{}
+table tbody td.t-cell-map{
+    width: 142px;
+    padding: 0px;
+}
+table tbody td.t-cell-status{
+    width: 150px;
+    padding: 0px;
+}
+table tbody td.t-cell-players{
+    width: 150px;
+    padding: 0px;
+}
+
+table tbody td .td-content-container {
+    height: 110px;
+    overflow-y: hidden;
+}
+
+
+.server-title {
+    font-style: italic;
+    font-weight: bold;
+    font-size: 14px;
+    padding-top: 5px;
+}
+
+/*===============Status List===============*/
+ul.status {
+    text-align: left;
+    list-style: none;
+    padding: 0;
+    margin: 0 auto;
+    width: 100%;
+}
+
+ul.status .status-offline {
+    background-color: #bf3030;
+    text-align: center;
+}
+ul.status .status-online {
+    background-color: #679b00;
+    text-align: center;
+}
+ul.status .status-field {
+    width: 45%;
+    display: inline-block;
+    font-weight: bold;
+}
+ul.status .status-value {
+
+}
+ul.status li {
+    display: block;
+    padding-left: 5px;
+    padding-right: 5px;
+    padding-top: 0;
+    padding-bottom: 0;
+    margin: 0;
+}
+
+/*===============MOTD===============*/
+ul.motd {
+    text-align: left;
+    list-style: none;
+    padding: 0;
+    margin: 0 auto;
+    width: 100%;
+}
+ul.motd .motd-header {
+    background-color: #555;
+    text-align: center;
+}
+ul.motd .motd-value {
+    display: inline-block;
+    font-style: italic;
+}
+/*===============Player List===============*/
+ul.player-list {
+    text-align: left;
+    list-style: none;
+    padding: 0;
+    margin: 0 auto;
+    overflow-y: scroll;
+    height: 100%;
+    width: 100%;
+}
+
+ul.player-list li {
+    display: block;
+    padding-left: 5px;
+    padding-right: 5px;
+    padding-top: 0;
+    padding-bottom: 0;
+    margin: 0;
+    background-color: #1d7373;
+}
+
+ul.player-list .player {
+    margin-right: 5px;
+    margin-left: 5px;
+}

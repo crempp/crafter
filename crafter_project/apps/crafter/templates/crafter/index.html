@@ -1,0 +1,70 @@
+{% extends "crafter/_base.html" %}
+
+{% load staticfiles %}
+
+{% block content %}
+<table class='server-table'>
+  <thead>
+      <tr>
+        <th>Game</th>
+        <th>Map</th>
+        <th>Status</th>
+        <th>Players</th>
+      </tr>
+  </thead>
+  <tbody>
+    {%  for game in games %}
+    <tr>
+      <td class="t-cell-game">
+        <div class="td-content-container">
+            <div class='server-title'>
+              {{ game.name }}
+            </div>
+            <p>{{ game.description }}</p>
+        </div>
+      </td>
+      <td class="t-cell-map">
+          <div class="td-content-container">
+              <a href="{{ game.map_url }}" target="_blank">
+                <img src="{{ game.map_preview_url }}">
+              </a>
+          </div>
+      </td>
+      <td class="t-cell-status">
+          <div class="td-content-container">
+            <ul class="status">
+              {% if game.online %}
+              <li class="status-online">online</li>
+              {% else %}
+              <li class="status-offline">offline</li>
+              {% endif %}
+              <li>
+                <span class="status-field">players:</span>
+                <span class="status-value">{{ game.player_count_string }}</span>
+              </li>
+              <li>
+                <span class="status-field">Version:</span>
+                <span class="status-value">{{ game.version.version }}</span>
+              </li>
+            </ul>
+            <ul class="motd">
+              <li class="motd-header">MOTD:</li>
+              <li class="motd-value">{{ game.gameconfiguration.motd }}</li>
+            </ul>
+          </div>
+      </td>
+      <td class="t-cell-players">
+          <div class="td-content-container">
+              <ul class="player-list">
+                  {% for player in game.online_player_list %}
+                  <li><span class="player">{{ player.name }}</span></li>
+                  {% endfor %}
+              </ul>
+          </div>
+      </td>
+    </tr>
+    {% endfor %}
+  </tbody>
+
+</table>
+{% endblock %}
