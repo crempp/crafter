@@ -13,7 +13,7 @@ The following is a sample entry for cron (runs every two minutes)
   
 """
 
-OUTPUT_PATH = '/var/www/crafter.lapinlabs.com/data/servers.json'
+OUTPUT_PATH = '/srv/crafter.lapinlabs.com/data/servers.json'
 TIMEOUT = 1
 RETRIES = 2
 

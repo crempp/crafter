@@ -1,8 +1,8 @@
 config = {
     'map': {
-        'map-path': '/var/www/crafter.lapinlabs.com/webroot/maps',
+        'map-path': '/srv/crafter.lapinlabs.com/webroot/maps',
         'map-url': 'http://crafter.lapinlabs.com/maps',
-        'config' : '/var/www/crafter.lapinlabs.com/data/mapconfigs/all.mapconfig',
+        'config' : '/srv/crafter.lapinlabs.com/data/mapconfigs/all.mapconfig',
     },
     'servers': [
       {
@@ -12,9 +12,9 @@ config = {
         'port': 25565,
         'path': '/srv/minecraft.65',
         'map': {
-            'map-path': '/var/www/crafter.lapinlabs.com/webroot/maps/65',
+            'map-path': '/srv/crafter.lapinlabs.com/webroot/maps/65',
             'map-url': 'http://crafter.lapinlabs.com/maps/65',
-            #'config' : '/var/www/crafter.lapinlabs.com/data/mapconfigs/65.mapconfig',
+            #'config' : '/srv/crafter.lapinlabs.com/data/mapconfigs/65.mapconfig',
         }
       },
       {
@@ -24,9 +24,9 @@ config = {
         'port': 25566,
         'path':'/srv/minecraft.66',
         'map': {
-            'map-path': '/var/www/crafter.lapinlabs.com/webroot/maps/66',
+            'map-path': '/srv/crafter.lapinlabs.com/webroot/maps/66',
             'map-url': 'http://crafter.lapinlabs.com/maps/66',
-            #'config' : '/var/www/crafter.lapinlabs.com/data/mapconfigs/66.mapconfig',
+            #'config' : '/srv/crafter.lapinlabs.com/data/mapconfigs/66.mapconfig',
         }
       },
       {
@@ -36,9 +36,9 @@ config = {
         'port': 25567,
         'path': '/srv/minecraft.67',
         'map': {
-            'map-path': '/var/www/crafter.lapinlabs.com/webroot/maps/67',
+            'map-path': '/srv/crafter.lapinlabs.com/webroot/maps/67',
             'map-url': 'http://crafter.lapinlabs.com/maps/67',
-            #'config' : '/var/www/crafter.lapinlabs.com/data/mapconfigs/67.mapconfig',
+            #'config' : '/srv/crafter.lapinlabs.com/data/mapconfigs/67.mapconfig',
         }
       },
       {
@@ -48,9 +48,9 @@ config = {
         'port': 25568,
         'path': '/srv/minecraft.68',
         'map': {
-            'map-path': '/var/www/crafter.lapinlabs.com/webroot/maps/68',
+            'map-path': '/srv/crafter.lapinlabs.com/webroot/maps/68',
             'map-url': 'http://crafter.lapinlabs.com/maps/68',
-            #'config' : '/var/www/crafter.lapinlabs.com/data/mapconfigs/68.mapconfig',
+            #'config' : '/srv/crafter.lapinlabs.com/data/mapconfigs/68.mapconfig',
         }
       },
       {
@@ -60,9 +60,9 @@ config = {
         'port': 25569,
         'path': '/srv/minecraft.69',
         'map': {
-            'map-path': '/var/www/crafter.lapinlabs.com/webroot/maps/69',
+            'map-path': '/srv/crafter.lapinlabs.com/webroot/maps/69',
             'map-url': 'http://crafter.lapinlabs.com/maps/69',
-            #'config' : '/var/www/crafter.lapinlabs.com/data/mapconfigs/69.mapconfig',
+            #'config' : '/srv/crafter.lapinlabs.com/data/mapconfigs/69.mapconfig',
         }
       },
       {
@@ -72,9 +72,9 @@ config = {
         'port': 25564,
         'path': '/srv/minecraft.64',
         'map': {
-            'map-path': '/var/www/crafter.lapinlabs.com/webroot/maps/64',
+            'map-path': '/srv/crafter.lapinlabs.com/webroot/maps/64',
             'map-url': 'http://crafter.lapinlabs.com/maps/64',
-            #'config' : '/var/www/crafter.lapinlabs.com/data/mapconfigs/64.mapconfig',
+            #'config' : '/srv/crafter.lapinlabs.com/data/mapconfigs/64.mapconfig',
         }
       },
     ]

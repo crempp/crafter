@@ -1,24 +1,5 @@
 #!/usr/bin/env python
-'''
-# Minecraft version
-VERSION=1.7.9
-
-CLIENT_PATH="~/.minecraft/versions"
-
-SERVER_PATH[0]="/srv/minecraft.65/Land of the Unnamed Wise Turtles"
-
-OUTPUT_PATH[0]="/var/www/crafter.lapinlabs.com/webroot/maps/65"
-
-
-# Download the client for the textures
-if [ ! -d $CLIENT_PATH/${VERSION}/ ]; then
-    
-fi
-
-overviewer.py $SERVER_PATH 
-
-overviewer.py "/srv/minecraft.64/world" "/var/www/crafter.lapinlabs.com/webroot/maps/64"
-'''
+''' Build maps using overviewer for all servers in the servers.json file'''
 
 import json
 import os.path
@@ -27,9 +8,9 @@ from os import system
 from os import mkdir
 from datetime import datetime
 
-DATA_PATH = '/var/www/crafter.lapinlabs.com/data/servers.json'
+DATA_PATH = '/srv/crafter.lapinlabs.com/data/servers.json'
 
-CLIENT_PATH = '/var/www/crafter.lapinlabs.com/data'
+CLIENT_PATH = '/srv/crafter.lapinlabs.com/data'
 
 config = json.load(open(DATA_PATH, 'r'))
 
@@ -38,7 +19,15 @@ for server in config['servers']:
     
     # Download the required version of the client
     print('  Checking for correct client version..')
-    version = server['status']['version']
+    
+    try:
+        version = server['status']['version']
+    except:
+        # No version probably means it's not running, skip
+        # TODO: handle this in a cleaner way
+        print("    no version info, is the server down? Skipping.")
+        continue
+    
     if not os.path.isfile('%s/%s/%s.jar' % (CLIENT_PATH, version, version)):
         print('    Downloading Minecraft client %s..' % version)
         system('wget https://s3.amazonaws.com/Minecraft.Download/versions/%s/%s.jar -P %s/%s/' % (version, version, CLIENT_PATH, version))
@@ -49,12 +38,12 @@ for server in config['servers']:
     start = datetime.now()
     print('  Running Overviewer build [started %s]' % start.strftime("%H:%M:%s"))
 
-    cmd = 'export MAP="%s"; overviewer.py --config "%s"' % (server['name'], config['map']['config'])
+    mapconfig = '%s/overviewer.config' % server['path']
+    cmd = 'export MAP="%s"; overviewer.py --config "%s"' % (server['name'], mapconfig)
     print(cmd)
     system(cmd)
 
     end = datetime.now()
     print('  Finished build [total time %s]' % (end - start))
     
-    
-
+   
