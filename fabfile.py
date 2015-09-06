@@ -1,12 +1,38 @@
 import os
+import sys
 
 from fabric.api import local
-from fabric.context_managers import cd
+from fabric.context_managers import cd, lcd
+from fabric.contrib import files
 
 CRAFTER_BASE_PATH = os.path.dirname(os.path.realpath(__file__))
 SERVER_JAR_PATH = os.path.join(CRAFTER_BASE_PATH, 'bin/server-jars')
 DIRECTORY = os.path.join(CRAFTER_BASE_PATH, 'games/')
 
+DJANGO_PROJECT_DIR = os.path.join(os.path.dirname(__file__), 'crafter_project')
+DJANGO_APPS_DIR = os.path.join(DJANGO_PROJECT_DIR, 'apps')
+
+
+def setup_django():
+    import django
+
+    # Add the Django project directory to the path
+    sys.path.insert(0, DJANGO_PROJECT_DIR)
+
+    # Set project settings
+    os.environ.setdefault("DJANGO_SETTINGS_MODULE", "crafter_project.settings")
+
+    # Start Django
+    django.setup()
+
+
+def create(game_id):
+    setup_django()
+
+    from crafter import models
+
+    print models.Game.objects.get(pk=1)
+    #files.exists('opt/crafter')
 
 def start(game_id):
     # The -Xms option sets the initial and minimum Java heap size. The Java
@@ -32,6 +58,6 @@ def start(game_id):
     game_path = os.path.join(DIRECTORY, game_id)
     local('mkdir %s' % game_path)
 
-    with cd(game_path):
+    with lcd(game_path):
         #local('java -Xms%s -Xmx%s -jar %s nogui' % (xms_ram, xmx_ram, server_jar))
         local('ls')

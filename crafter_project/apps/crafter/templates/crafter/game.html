@@ -1,0 +1,21 @@
+{% extends "crafter/_base.html" %}
+
+{% load staticfiles %}
+
+{% block content %}
+<p>{{ game.name }}</p>
+
+<table>
+    <tr>
+        <td>
+            <a href="#">deploy</a>
+        </td>
+        <td>
+            <a href="#">on</a>
+        </td>
+        <td>
+            <a href="#">off</a>
+        </td>
+    </tr>
+</table>
+{% endblock %}
